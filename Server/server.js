@@ -3,6 +3,7 @@ const express = require("express");
 const connectDB = require("./src/config/db");
 const userRoutes = require('./src/routes/auth.routes')
 const categoryRoutes = require('./src/routes/category.routes')
+const transactionRoutes = require('./src/routes/transaction.routes')
 const CookieParser = require('cookie-parser');
 const errorHandler = require('./src/middlewares/error.middleware');
 
@@ -15,6 +16,7 @@ app.use(CookieParser());
 
 app.use('/api/user', userRoutes)
 app.use('/api/category', categoryRoutes)
+app.use('/api/transaction', transactionRoutes)
 
 app.use(errorHandler);
 

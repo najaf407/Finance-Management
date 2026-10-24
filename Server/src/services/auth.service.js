@@ -1,6 +1,6 @@
 const userModel = require('../models/user.model')
 const jwt = require('jsonwebtoken')
-const brypt = require('bcryptjs')
+const bcrypt = require('bcryptjs')
 const ApiError = require('../utils/ApiError')
 const categoryService = require('./category.service')
 
