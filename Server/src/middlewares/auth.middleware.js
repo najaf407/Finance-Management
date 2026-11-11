@@ -16,12 +16,12 @@ const auth = asyncHandler(async (req, res, next) => {
 
   let decoded;
   try {
-    decoded = jwt.verify(token, process.env.JWT_SECRET);
+    decoded = jwt.verify(token, process.env.JWT_SECRET, { algorithms: ['HS256'] });
   } catch (err) {
     throw new ApiError(401, 'Invalid or expired token');
   }
 
-  const user = await userModel.findById(decoded.id).select('-password');
+  const user = await userModel.findById(decoded.id).select('_id name email').lean();
   if (!user) {
     throw new ApiError(401, 'User not found');
   }

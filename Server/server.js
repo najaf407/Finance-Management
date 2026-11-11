@@ -6,6 +6,7 @@ const categoryRoutes = require('./src/routes/category.routes')
 const transactionRoutes = require('./src/routes/transaction.routes')
 const CookieParser = require('cookie-parser');
 const errorHandler = require('./src/middlewares/error.middleware');
+const summaryRoutes = require('./src/routes/summary.routes');
 
 connectDB();
 
@@ -14,9 +15,10 @@ const app = express();
 app.use(express.json());
 app.use(CookieParser());
 
-app.use('/api/user', userRoutes)
+app.use('/api/auth', userRoutes)
 app.use('/api/category', categoryRoutes)
 app.use('/api/transaction', transactionRoutes)
+app.use('/api/summary', summaryRoutes)
 
 app.use(errorHandler);
 

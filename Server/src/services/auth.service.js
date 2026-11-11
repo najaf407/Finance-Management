@@ -4,14 +4,12 @@ const bcrypt = require('bcryptjs')
 const ApiError = require('../utils/ApiError')
 const categoryService = require('./category.service')
 
-// userSignUp
-
 const userSignUp = async ({name, email, password}) => {
     let user;
     try {
         user = await userModel.create({ name, email, password})
     } catch (err) {
-        if (err.code === 1100) { 
+        if (err.code === 11000) { 
             throw new ApiError(409, "User already exists")
         }
         throw err;
@@ -24,9 +22,8 @@ const userSignUp = async ({name, email, password}) => {
     return { user, token }
 }
 
-// userLogin
-
 const userLogin = async ({ email, password }) => {
+  
   const user = await userModel.findOne({ email }).select('+password');
 
   if (!user) {
@@ -46,4 +43,10 @@ const userLogin = async ({ email, password }) => {
   return { user, token };
 };
 
-module.exports = { userSignUp, userLogin };
+const getMe = async (userId) => {
+  const user = await userModel.findById(userId).select('-password');
+  if (!user) throw new ApiError(404, 'User not found');
+  return user;
+};
+
+module.exports = { userSignUp, userLogin, getMe };

@@ -1,14 +1,14 @@
 const defultCategories = [
     // Expense
-  { name: 'Food', type: 'expense' },
-  { name: 'Transport', type: 'expense' },
-  { name: 'Rent', type: 'expense' },
-  { name: 'Bills', type: 'expense' },
-  { name: 'Shopping', type: 'expense' },
-  { name: 'Health', type: 'expense' },
+  { name: 'food', type: 'expense' },
+  { name: 'transport', type: 'expense' },
+  { name: 'rent', type: 'expense' },
+  { name: 'bills', type: 'expense' },
+  { name: 'shopping', type: 'expense' },
+  { name: 'health', type: 'expense' },
   // Income
-  { name: 'Salary', type: 'income' },
-  { name: 'Business', type: 'income' },
+  { name: 'salary', type: 'income' },
+  { name: 'business', type: 'income' },
 ]
 
 module.exports = defultCategories;

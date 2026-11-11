@@ -20,4 +20,16 @@ const Login = asyncHandler(async (req, res) => {
 
 })        
 
-module.exports = { SignUp, Login }
+const LogOut = asyncHandler(async (req, res) => {
+        res.clearCookie('token', cookieOptions)
+
+        return res.status(200).json(new ApiResponse(200, null, "User logged out successfully"));
+})
+
+const GetMe = asyncHandler(async (req, res) => {
+  const user = await authService.getMe(req.user._id);
+
+  res.status(200).json(new ApiResponse(200, user, 'User fetched successfully'));
+});
+
+module.exports = { SignUp, Login, LogOut, GetMe }
