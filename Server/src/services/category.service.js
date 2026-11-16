@@ -5,7 +5,7 @@ const { categoryIdParam } = require('../validators/category.validator');
 
 const createCategory = async (userId, data) => {
     try {
-        const category = await categoryModel.create({
+        return await categoryModel.create({
             user: userId,
             name: data.name,
             type: data.type,

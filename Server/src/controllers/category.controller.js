@@ -5,7 +5,7 @@ const asyncHandler = require('../utils/asyncHandler');
 
 const createCategory = asyncHandler(async (req, res) => {
     const category = await categoryService.createCategory(req.user._id, req.body);
-
+    
     return res.status(201).json(new ApiResponse(201, { category }, "Category created successfully"));
 });
 

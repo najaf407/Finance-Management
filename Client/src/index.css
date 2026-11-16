@@ -1,0 +1,95 @@
+@import "tailwindcss";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --primary: #1f4d3a;
+  --primary-hover: #163a2b;
+  --primary-soft: #dde8df;
+  --on-primary: #fbf9f3;
+  --accent: #b8893b;
+
+  --bg: #f5f1e8;
+  --surface: #fbf9f3;
+  --border: #ddd6c5;
+  --text: #1c2420;
+  --text-muted: #5e6a60;
+
+  --success: #2f7d4f;
+  --warning: #d08a2e;
+  --error: #b5472f;
+  --info: #3f6f86;
+
+  --chart-1: #1f4d3a;
+  --chart-2: #7fa38a;
+  --chart-3: #b8893b;
+  --chart-4: #a3a66b;
+  --chart-5: #b5472f;
+}
+
+[data-theme="dark"] {
+  --primary: #6fbf8e;
+  --primary-hover: #8ccfa6;
+  --primary-soft: #1d3329;
+  --on-primary: #0f1a15;
+  --accent: #d4a85a;
+
+  --bg: #0f1a15;
+  --surface: #16241d;
+  --border: #27382f;
+  --text: #e8ede4;
+  --text-muted: #93a097;
+
+  --success: #5fb584;
+  --warning: #e0a04a;
+  --error: #d9715a;
+  --info: #6fa3bb;
+
+  --chart-1: #6fbf8e;
+  --chart-2: #a9cdb4;
+  --chart-3: #d4a85a;
+  --chart-4: #b9bc7f;
+  --chart-5: #d9715a;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-soft: var(--primary-soft);
+  --color-on-primary: var(--on-primary);
+  --color-accent: var(--accent);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+@theme {
+  --font-heading: "Pliant", sans-serif;
+  --font-body: "Public Sans", sans-serif;
+  --font-numbers: "Xmind", sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
