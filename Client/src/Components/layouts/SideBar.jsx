@@ -5,16 +5,16 @@ import { LayoutDashboard, ArrowLeftRight, Tags, UserRound, Settings } from "luci
 
 // Desktop sidebar items (all 5). "divider" adds a line above that item.
 const desktopItems = [
-  { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
+  { name: "Dashboard", path: "/", icon: LayoutDashboard },
   { name: "Transactions", path: "/transactions", icon: ArrowLeftRight },
   { name: "Categories", path: "/categories", icon: Tags },
-  { name: "Profile", path: "/profile", icon: UserRound, divider: true },
+  { name: "Profile", path: "/profile", icon: UserRound },
   { name: "Settings", path: "/settings", icon: Settings },
 ];
 
 // Mobile bottom bar items (no Settings)
 const mobileItems = [
-  { name: "Dashboard", path: "/dashboard", icon: LayoutDashboard },
+  { name: "Dashboard", path: "/", icon: LayoutDashboard },
   { name: "Transactions", path: "/transactions", icon: ArrowLeftRight },
   { name: "Categories", path: "/categories", icon: Tags },
   { name: "Profile", path: "/profile", icon: UserRound },
@@ -32,28 +32,24 @@ const mobileLinkClass = ({ isActive }) =>
   `flex flex-1 flex-col items-center justify-center gap-1 rounded-xl py-2.5 transition-colors ${
     isActive
       ? "bg-primary-soft text-primary"
-      : "text-text-muted hover:bg-primary-soft hover:text-primary"
+      : "text-text-muted"
   }`;
 
 function Sidebar() {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="hidden md:flex fixed left-0 top-0 z-40 h-screen w-64 flex-col border-r border-border bg-surface p-5">
+      <aside className="hidden lg:flex fixed left-0 top-0 z-40 h-screen w-64 flex-col border-r border-border bg-surface p-5">
         <div className="mb-10">
           <Logo />
         </div>
 
         <nav className="flex flex-col gap-2">
           {desktopItems.map(({ name, path, icon: Icon, divider }) => (
-            <React.Fragment key={path}>
-              {divider && <div className="my-4 border-t border-border" />}
-
               <NavLink to={path} className={desktopLinkClass}>
                 <Icon size={22} strokeWidth={1.9} />
                 {name}
               </NavLink>
-            </React.Fragment>
           ))}
         </nav>
 
@@ -63,7 +59,7 @@ function Sidebar() {
       </aside>
 
       {/* Mobile Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 z-50 flex w-full items-center justify-around border-t border-border bg-surface px-1 pb-safe md:hidden">
+      <nav className="fixed bottom-0 left-0 z-50 flex h-20 w-full items-center justify-around border-t border-border bg-surface px-1 pb-safe lg:hidden">
         {mobileItems.map(({ name, path, icon: Icon }) => (
           <NavLink key={path} to={path} className={mobileLinkClass}>
             {({ isActive }) => (
