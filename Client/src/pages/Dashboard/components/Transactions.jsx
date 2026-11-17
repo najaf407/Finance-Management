@@ -12,9 +12,6 @@ const sampleData = [
     { id: 8, category: 'Rent', type: 'expense', amount: 25000, date: '2026-11-09' },
     { id: 9, category: 'Transport', type: 'expense', amount: 800, date: '2026-11-08' },
     { id: 10, category: 'Gift', type: 'income', amount: 5000, date: '2026-11-07' },
-    { id: 11, category: 'Food', type: 'expense', amount: 1900, date: '2026-11-06' },
-    { id: 12, category: 'Bills', type: 'expense', amount: 4500, date: '2026-11-05' },
-    { id: 13, category: 'Shopping', type: 'expense', amount: 6200, date: '2026-11-04' },
 ]
 
 const formatDate = (date) =>
