@@ -26,6 +26,18 @@ export const SecondaryButton = ({ children, width = 'w-auto', onClick, type = 'b
   );
 };
 
+export const TertiaryButton = ({ children, width = 'w-auto', onClick, type = 'button' }) => {
+  return (
+    <button
+      type={type}
+      onClick={onClick}
+      className={`inline-flex items-center justify-center h-10 px-4 border border-border text-sm font-medium rounded-xl bg-surface text-text hover:bg-primary-soft hover:text-primary hover:border-primary transition-colors cursor-pointer ${width}`}
+    >
+      {children}
+    </button>
+  );
+};
+
 export const SettingButton = () => {
   return (
     <NavLink path = "/settings" to="/settings">
